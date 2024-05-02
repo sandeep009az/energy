@@ -104,7 +104,7 @@ const buyFun = async (req, res) => {
       name: user.username,
     });
     await buyObj.save();
-    res.render("buy", { userId: userId });
+    res.redirect("/energy/home?id=" + userId);
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, error: "Internal Server Error" });
@@ -130,7 +130,7 @@ const sellFun = async (req, res) => {
       name: user.username,
     });
     await sellObj.save();
-    res.render("sell", { userId: userId });
+    res.redirect("/energy/home?id=" + userId);
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, error: "Internal Server Error" });
