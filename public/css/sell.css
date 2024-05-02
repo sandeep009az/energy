@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+
+  background-image: url("/images/login.jpg");
+  background-size: 100% 100%; /* 40% width, full height */
+  background-repeat: no-repeat;
+  background-color: black; /* Fallback color */
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  text-align: center;
+  color: white;
+  margin: 10em;
+}
+
+h1 {
+  font-size: 3em;
+  display: inline-block;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 200px;
+  padding: 10px;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Colors Animation */
+@keyframes changeColor {
+  0% {
+    color: red;
+  }
+  25% {
+    color: blue;
+  }
+  50% {
+    color: green;
+  }
+  75% {
+    color: yellow;
+  }
+  100% {
+    color: orange;
+  }
+}
+
+.animated-color {
+  animation: changeColor 5s infinite;
+}

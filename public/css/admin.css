@@ -1,0 +1,75 @@
+body {
+  background-color: #3c5b6f;
+  margin: 0;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+}
+.npass {
+  background-color: rgba(196, 12, 12, 0.5);
+}
+.pass {
+  background-color: rgba(144, 210, 109, 0.5);
+}
+.semi {
+  background-color: yellow;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-button {
+  align-self: center;
+  padding: 10px;
+}
+.home-button {
+  float: right;
+  color: rgb(14, 14, 14);
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+.admin-button {
+  float: right;
+  color: rgb(18, 18, 18);
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+.table-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sub-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+table {
+  width: 100%;
+  margin: 2em;
+}
+
+.button {
+  display: inline-block;
+  padding: 20px 35px;
+  text-decoration: none;
+  color: white;
+  background-color: #153448;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}

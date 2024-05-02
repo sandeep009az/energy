@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Energy Trading</title>
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <video autoplay muted loop id="myVideo">
+      <source src="/videos/home_solar.mp4" type="video/mp4" />
+    </video>
+
+    <div class="container">
+      <!-- Existing content -->
+      <div class="header" style="background-color: rgba(207, 211, 211, 0.862)">
+        <h1>Peer-2-Peer Energy Trading</h1>
+        <div class="header-button">
+          <a href="/energy/admin" class="admin-button">Admin</a>
+          <a href="/energy/signup" class="home-button">SignUp</a>
+          <a href="/energy/login" class="home-button">Login</a>
+        </div>
+      </div>
+      <div class="button-container">
+        <a href="/energy/login" id="buy-btn" class="button">BUY</a>
+      </div>
+      <div class="button-container1">
+        <a href="/energy/login" id="sell-btn" class="button1">SELL</a>
+      </div>
+      <div class="description">
+        <h2>Description:</h2>
+        <p>
+          Peer-to-peer energy trading in a community involves individuals and
+          businesses buying and selling excess renewable energy directly to each
+          other. This decentralized approach enables more efficient use of
+          renewable energy resources and fosters community collaboration in
+          sustainable energy practices.
+        </p>
+      </div>
+
+      <!-- Home button -->
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const userId = "<%=userId%>";
+        console.log(userId);
+        if (userId) {
+          document
+            .getElementById("sell-btn")
+            .setAttribute("href", "/energy/sell?id" + userId);
+          document
+            .getElementById("buy-btn")
+            .setAttribute("href", "/energy/buy?id" + userId);
+        }
+      });
+    </script>
+  </body>
+</html>

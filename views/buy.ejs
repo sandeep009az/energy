@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Energy</title>
+    <link rel="stylesheet" href="/css/buy.css" />
+    <!-- Link to your CSS file -->
+    <style>
+      .bottom-content {
+        position: fixed;
+        bottom: 20px;
+        left: 60%;
+        transform: translateX(-50%);
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BUY SIDE ENERGY</h1>
+    <hr />
+    <form action="/energy/buy" method="post">
+      <div>
+        <label for="energy-required">Energy Required:</label>
+        <input
+          type="number"
+          id="energy-required"
+          name="energy"
+          placeholder="Enter energy required"
+          required
+        />
+      </div>
+      <div>
+        <label for="max-price">Maximum Price:</label>
+        <input
+          type="number"
+          id="max-price"
+          name="price"
+          placeholder="Enter maximum price"
+          required
+        />
+      </div>
+      <input type="hidden" name="userId" value="<%= userId %>" />
+      <button type="submit">Check In</button>
+    </form>
+    <div class="bottom-content curved-box">
+      <div class="content">
+        <img
+          src="/images/Enthusiasm for solar panels is contagious.jpg"
+          alt="Description Image"
+        />
+        <p>
+
+          Welcome to our buy page, where you can join the revolution in energy trading. By becoming a participant in our peer-to-peer energy marketplace, you gain access to clean, sustainable energy directly from local producers. Say goodbye to traditional energy providers and hello to a community-driven approach where you have the power to choose your energy sources. Join us today and start contributing to a greener, more sustainable future while enjoying the benefits of cost-effective energy solutions tailored to your needs.
+        </p>
+      </div>
+    </div>
+
+    <div
+      id="trading-chart"
+      style="width: 80%; height: 400px; margin: 0 auto"
+    ></div>
+
+    <script>
+      // Function to generate random data for the trading chart
+      function generateData() {
+        const now = new Date();
+        const time = now.getTime();
+        const newData = {
+          x: [time],
+          y: [Math.random() * 1000], // Random stock price
+        };
+        return newData;
+      }
+
+      // Create initial data for the trading chart
+      const initialData = generateData();
+
+      // Create the plot
+      const layout = {
+        title: "Live Trading Chart",
+        xaxis: {
+          title: "Time",
+        },
+        yaxis: {
+          title: "Stock Price",
+        },
+      };
+
+      Plotly.plot(
+        "trading-chart",
+        [
+          {
+            x: [initialData.x],
+            y: [initialData.y],
+            mode: "lines+markers",
+            line: { color: "blue" },
+            marker: { size: 8 },
+          },
+        ],
+        layout
+      );
+
+      // Update the chart with new data every second
+      setInterval(function () {
+        const newData = generateData();
+        Plotly.extendTraces(
+          "trading-chart",
+          {
+            x: [[newData.x]],
+            y: [[newData.y]],
+          },
+          [0]
+        );
+      }, 1000);
+    </script>
+  </body>
+</html>

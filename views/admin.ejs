@@ -1,0 +1,90 @@
+<!-- admin.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <div class="header" style="background-color: rgba(207, 211, 211, 0.862)">
+      <h1>Peer-2-Peer Energy Trading</h1>
+      <div class="header-button">
+        <a href="/energy/home" class="admin-button">Home</a>
+        <a href="/energy/signup" class="home-button">SignUp</a>
+        <a href="/energy/login" class="home-button">Login</a>
+      </div>
+    </div>
+   <div class="table-div">
+    <h2 style="color: aliceblue;">Buyers Data:</h2>
+    <div class="sub-div" style="background-color: #DFD0B8;">
+    <table id="buy_table">
+      <tr style="background-color: #153448; color: aliceblue;">
+        <th>Name</th>
+        <th>Bided Price</th>
+        <th>Required Quantity</th>
+        <th>Optimal Price</th>
+        <th>Optimal Quantity</th>
+        <th>Remaining Quantity</th>
+      </tr>
+      <% buyData.forEach(item => { %>
+      <tr class=<%= item.isIn?item.quantity===0?'pass':'semi':'npass'%>>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.int_qua %></td>
+        <td><%=opt_price%></td>
+        <!-- Assuming opt_price is a variable you need to replace with actual value -->
+        <td><%=item.opt_quantity %></td>
+        <td><%= item.quantity %></td>
+      </tr>
+      <% }); %>
+    </table>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum deserunt laudantium accusantium error excepturi saepe esse corporis? Fuga ex eligendi nisi saepe, cupiditate voluptate rerum adipisci maxime quis repudiandae quibusdam.</p>
+  </div>
+    <h2 style="color: aliceblue;">Sellers Data:</h2>
+    <div class="sub-div" style="background-color: #948979;">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum deserunt laudantium accusantium error excepturi saepe esse corporis? Fuga ex eligendi nisi saepe, cupiditate voluptate rerum adipisci maxime quis repudiandae quibusdam.</p>
+    <table id="sell_table">
+      <tr style="background-color: #153448; color: aliceblue;">
+        <th>Name</th>
+        <th>Bided Price</th>
+        <th>Available Quantity</th>
+        <th>Optimal Price</th>
+        <th>Remaining Quantity</th>
+      </tr>
+      <% sellData.forEach(item => { %>
+      <tr class=<%= item.isIn?item.quantity===0?'pass':'semi':'npass'%>>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.int_qua %></td>
+        <td><%=opt_price%></td>
+        <td><%= item.quantity %></td>
+        <!-- Assuming remaining_quantity is a variable you need to replace with actual value -->
+      </tr>
+      <% }); %>
+    </table> 
+    </div>
+    <form action="/energy/admin/update" method="get">
+      <button class="button" type="submit">Start Auction</button>
+    </form>
+  </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fetch data from MongoDB collections using Mongoose queries
+        // Assuming buyModel and sellModel are Mongoose models for buy and sell collections respectively
+
+        // Example Mongoose query to fetch data
+        const buyData = [<%=buyData%>]; // Replace buyData with actual data from buy collection
+        const sellData = [<%=sellData%>];  // Replace sellData with actual data from sell collection
+        console.log(buyData.length);
+        if(buyData.length===0){
+          document.getElementById('buy_table').setAttribute('style','display: none;')
+        }
+        if(sellData.length===0){
+          document.getElementById('sell_table').setAttribute('style','display: none;')
+        }
+      })
+    </script>
+  </body>
+</html>

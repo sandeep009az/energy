@@ -1,0 +1,122 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: auto;
+  padding: white;
+  animation: colorChange 5s infinite linear; /* Apply the animation */
+}
+
+@keyframes colorChange {
+  0% {
+    color: red;
+    background-position: 0 0;
+  }
+  20% {
+    color: orange;
+    background-position: 20% 0;
+  }
+  40% {
+    color: yellow;
+    background-position: 40% 0;
+  }
+  60% {
+    color: green;
+    background-position: 60% 0;
+  }
+  80% {
+    color: blue;
+    background-position: 80% 0;
+  }
+  100% {
+    color: purple;
+    background-position: 100% 0;
+  }
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid white;
+  margin-bottom: 20px;
+}
+
+.curved-box {
+  width: 80%;
+  /* margin-bottom: 10%; */
+
+  border-radius: 20px;  
+  overflow: hidden;
+  /* display: flex; Use flexbox */
+}
+
+.content {
+  margin-left: auto; /* Push the box to the left by setting right margin to auto */
+  margin-right: 10%; /* Add some additional margin to the left */
+  padding-bottom: 5%;
+  display: flex; /* Use flexbox */
+}
+
+.curved-box img {
+  width: 200px;
+  display: flex;
+}
+
+.curved-box p {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin: 0;
+  color:burlywood;
+  font-size: 1.2rem;
+}
+
+body {
+  background-image: url("/images/buy2.jpg");
+  background-size: 100% 100%; /* 40% width, full height */
+  background-repeat: no-repeat;
+  background-color: black; /* Fallback color */
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  margin-top: 100px;
+  text-align: center;
+  font-size: large;
+  padding-left: 20px; /* Add padding to the left */
+}
+
+label {
+  display: inline-block; /* Ensure labels are displayed as blocks */
+  width: 150px; /* Set a fixed width for labels */
+  text-align: left; /* Align text to the left */
+}
+
+input[type="number"],
+input[type="text"],
+button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 200px;
+}
+
+button {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
