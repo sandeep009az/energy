@@ -14,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/energy", energyRoutes);
+app.get("/", (req, res) => {
+  res.redirect("/energy/home");
+});
 const dbURI = process.env.DB_URL;
 
 mongoose
